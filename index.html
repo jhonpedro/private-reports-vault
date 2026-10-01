@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="robots" content="noindex,nofollow,noarchive">
+  <meta name="referrer" content="no-referrer">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'unsafe-inline'; connect-src 'self'; frame-src 'self' about:; base-uri 'none'; form-action 'none'">
+  <title>Área privada</title>
+  <style>
+    *{box-sizing:border-box}body{margin:0;background:#f4f6f2;color:#223b32;font:16px/1.6 system-ui,sans-serif}
+    main{max-width:460px;margin:12vh auto;padding:30px;background:white;border:1px solid #d9e1d8;border-radius:16px}
+    h1{margin-top:0}label{display:block}input,button,select{font:inherit;padding:12px;border:1px solid #9daea2;border-radius:8px}
+    input{width:100%;margin:8px 0 18px}button{cursor:pointer;background:#225a42;color:white}button:disabled{opacity:.6}
+    #message{min-height:26px;color:#9a3126}header{padding:12px 20px;display:flex;gap:16px;align-items:center;flex-wrap:wrap}
+    select{max-width:100%}iframe{width:100%;height:calc(100vh - 100px);border:0;background:white}
+    [hidden]{display:none!important}small{color:#58665f}@media(max-width:500px){main{margin:8vh 16px}}
+  </style>
+  <script src="unlock.js" defer></script>
+</head>
+<body>
+  <main id="locked">
+    <h1>Área privada</h1>
+    <p>Digite sua senha para abrir os relatórios.</p>
+    <form id="unlock-form">
+      <label for="password">Senha</label>
+      <input id="password" type="password" autocomplete="current-password" required autofocus>
+      <button id="unlock" type="submit">Abrir relatórios</button>
+      <p id="message" role="status" aria-live="polite"></p>
+    </form>
+    <small>A senha não é enviada ao servidor. Feche a página ou clique em Bloquear ao terminar.</small>
+  </main>
+  <section id="opened" hidden>
+    <header><label for="report">Relatório</label><select id="report"></select><button id="lock" type="button">Bloquear</button></header>
+    <iframe id="viewer" title="Relatório desbloqueado" sandbox="allow-same-origin allow-popups allow-popups-to-escape-sandbox" referrerpolicy="no-referrer"></iframe>
+  </section>
+</body>
+</html>
